@@ -7,7 +7,7 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> WayGrade - Jobs & Internships
+    <title> WayGrade - Sports
     </title>
    </head>
 
@@ -27,21 +27,21 @@
           </a>
         </li>
         <li>
-          <a href="/jobinternship/{{username}}" >
+          <a href="/sports/{{username}}" >
             <i class='bx bx-ball' ></i>
-            <span class="links_name">Jobs & Internships</span>
+            <span class="links_name">Sports</span>
           </a>
         </li>
         <li>
-          <a href="/volunteer/{{username}}" class="active">
+          <a href="/grades/{{username}}" class="active">
             <i class='bx bx-book-bookmark' ></i>
-            <span class="links_name">Volunteer</span>
+            <span class="links_name">Grades</span>
           </a>
         </li>
         <li>
-          <a href="/tutoring/{{username}}">
+          <a href="#">
             <i class='bx bx-message' ></i>
-            <span class="links_name">tutoring</span>
+            <span class="links_name">Messages</span>
           </a>
         </li>
         <li>
@@ -63,7 +63,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Jobs & Internships</span>
+        <span class="dashboard">Sports</span>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -75,57 +75,51 @@
 
       <div class="profile-details">
         <img src="https://c4.wallpaperflare.com/wallpaper/273/268/863/appa-avatar-the-last-airbender-glasses-wallpaper-thumb.jpg" alt="">
-        <span class="admin_name">John Doe</span>
+        <span class="admin_name">{{username}}</span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
 
-    <div class="home-content">
+   <div class="home-content">
 
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Volunteer Opportunities</div>
+          <div class="title">Volunteering Opportunities</div>
           <div class="sales-details">
 
 
             <ul class="details">
 
-              <li class="topic">Date</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["DATE"]}}</a></li>
-              {% endfor %}
+              <li class="topic">Role</li>
+              <li>Software Engineer</li>
+                <li>Software Developer</li>
+                <li>Sales Associate</li>
 
             </ul>
 
             <ul class="details">
 
-            <li class="topic">Title</li>
-              {% for game in sportSchedule %}
-            <li><a href="#">{{game["OPPONENT"]}}</a></li>
-              {% endfor %}
+            <li class="topic">Company</li>
+              <li>Amazon Incorporated</li>
+                <li>Google Incorporated</li>
+                <li>Apple Incorporated</li>
 
           </ul>
 
             <ul class="details">
               <li class="topic">Location</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["LOCATION"]}}</a></li>
-              {% endfor %}
+              <li>Lehigh Valley</li>
+                <li>Lehigh Valley</li>
+                <li>Lehigh Valley</li>
             </ul>
 
             <ul class="details">
               <li class="topic">Description</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["SCORE"]}}</a></li>
-              {% endfor %}
+              <li>Make code</li>
+                <li>Make code</li>
+                <li>Sell stuff</li>
             </ul>
 
-            <ul class="details">
-              <li class="topic">Type</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["STATUS"]}}</a></li>
-              {% endfor %}
-            </ul>
 
           </div>
           <div class="button">
