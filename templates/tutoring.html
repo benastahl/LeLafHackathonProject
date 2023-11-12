@@ -14,38 +14,38 @@
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <img src='https://cdn5-ss2.sharpschool.com/UserFiles/Servers/Server_1036540/Templates/FY19_WHS_White.png' width="65" height="60">
-      <span class="logo_name">WayGrade</span>
+      <img src='../static/images/9688_lehigh_mountain_hawks-mascot-1996-removebg-preview.png' width="65" height="60">
+      <span class="logo_name">LVTies</span>
     </div>
       <ul class="nav-links">
 
         <!-- IF ACCOUNT IS LINKED -->
         <li>
-          <a href="/dashboard/{{username}}" >
+          <a href="/dashboard/{{username}}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/sports/{{username}}" >
-            <i class='bx bx-ball' ></i>
-            <span class="links_name">Sports</span>
+          <a href="/sports/{{username}}">
+            <i class='bx bx-briefcase' ></i>
+            <span class="links_name">Jobs & Internships</span>
           </a>
         </li>
         <li>
-          <a href="/grades/{{username}}" >
+          <a href="/grades/{{username}}"  class="active">
             <i class='bx bx-book-bookmark' ></i>
-            <span class="links_name">Grades</span>
+            <span class="links_name">Tutoring</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
+            <i class='bx bxs-heart'></i>
+            <span class="links_name">Volunteering</span>
           </a>
         </li>
         <li>
-          <a href="/settings/{{username}}" class="active">
+          <a href="/settings/{{username}}">
             <i class='bx bx-cog' ></i>
             <span class="links_name">Settings</span>
           </a>
@@ -80,7 +80,7 @@
       </div>
     </nav>
 
-    <div class="home-content">
+     <div class="home-content">
 
       <div class="sales-boxes">
         <div class="recent-sales box">
@@ -90,41 +90,34 @@
 
             <ul class="details">
 
-              <li class="topic">Date</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["DATE"]}}</a></li>
-              {% endfor %}
+              <li class="topic">Subject</li>
+              <li>Math</li>
+                <li>English</li>
+                <li>Science</li>
 
             </ul>
 
             <ul class="details">
 
-            <li class="topic">Title</li>
-              {% for game in sportSchedule %}
-            <li><a href="#">{{game["OPPONENT"]}}</a></li>
-              {% endfor %}
+            <li class="topic">Name</li>
+              <li>Amanda Fogel</li>
+                <li>Kristen Gallagher</li>
+                <li>Lehigh CSO</li>
 
           </ul>
 
             <ul class="details">
               <li class="topic">Location</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["LOCATION"]}}</a></li>
-              {% endfor %}
+              <li>Lehigh Valley</li>
+                <li>Lehigh Valley</li>
+                <li>Lehigh University</li>
             </ul>
 
             <ul class="details">
               <li class="topic">Description</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["SCORE"]}}</a></li>
-              {% endfor %}
-            </ul>
-
-            <ul class="details">
-              <li class="topic">Type</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["STATUS"]}}</a></li>
-              {% endfor %}
+              <li>Help with Calc 2</li>
+                <li>Help with writing</li>
+                <li>Help with chem</li>
             </ul>
 
           </div>
@@ -240,5 +233,3 @@ for (i = 0; i < coll.length; i++) {
 </body>
 
 </html>
-
-
