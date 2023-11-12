@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/styles/dashboard.css">
-    <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwaylandhs.sharpschool.net%2FUserFiles%2FServers%2FServer_1036540%2FImage%2FImages%2Fwaylandlogo_color.png&f=1&nofb=1">
+    <link rel="icon" href="../static/images/9688_lehigh_mountain_hawks-mascot-1996-removebg-preview.png">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> WayGrade - Sports
+    <title> Hackathon Proj - Dashboard
     </title>
    </head>
 
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <img src='https://cdn5-ss2.sharpschool.com/UserFiles/Servers/Server_1036540/Templates/FY19_WHS_White.png' width="65" height="60">
-      <span class="logo_name">WayGrade</span>
+      <img src='../static/images/9688_lehigh_mountain_hawks-mascot-1996-removebg-preview.png' width="65" height="60">
+      <span class="logo_name">LVHelp</span>
     </div>
       <ul class="nav-links">
 
@@ -28,20 +28,20 @@
         </li>
         <li>
           <a href="/sports/{{username}}">
-            <i class='bx bx-ball' ></i>
-            <span class="links_name">Sports</span>
+            <i class='bx bx-briefcase' ></i>
+            <span class="links_name">Jobs & Internships</span>
           </a>
         </li>
         <li>
           <a href="/grades/{{username}}">
             <i class='bx bx-book-bookmark' ></i>
-            <span class="links_name">Grades</span>
+            <span class="links_name">Tutoring</span>
           </a>
         </li>
         <li>
           <a href="#">
-            <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
+            <i class='bx bxs-heart'></i>
+            <span class="links_name">Volunteering</span>
           </a>
         </li>
         <li>
@@ -63,7 +63,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Sports</span>
+        <span class="dashboard">Dashboard</span>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -75,7 +75,7 @@
 
       <div class="profile-details">
         <img src="https://c4.wallpaperflare.com/wallpaper/273/268/863/appa-avatar-the-last-airbender-glasses-wallpaper-thumb.jpg" alt="">
-        <span class="admin_name">{{username}}</span>
+        <span class="admin_name">{{user.username}}</span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
@@ -84,45 +84,22 @@
       <div class="overview-boxes">
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Order</div>
-            <div class="number">40,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
+            <div class="box-topic">Total Posts</div>
+            <div class="number">{{posts | length}}</div>
           </div>
-          <i class='bx bx-cart-alt cart'></i>
+          <i class="bx bx-message-square-dots cart" style="font-size:45px;"></i>
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Sales</div>
-            <div class="number">38,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
+            <div class="box-topic">Posts Today</div>
+            <div class="number">4</div>
           </div>
-          <i class='bx bxs-cart-add cart two' ></i>
+          <i class='bx bxs-comment-add two cart'></i>
         </div>
         <div class="box">
           <div class="right-side">
-            <div class="box-topic">Total Profit</div>
-            <div class="number">$12,876</div>
-            <div class="indicator">
-              <i class='bx bx-up-arrow-alt'></i>
-              <span class="text">Up from yesterday</span>
-            </div>
-          </div>
-          <i class='bx bx-cart cart three' ></i>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Total Return</div>
-            <div class="number">11,086</div>
-            <div class="indicator">
-              <i class='bx bx-down-arrow-alt down'></i>
-              <span class="text">Down From Today</span>
-            </div>
+            <div class="box-topic">Internships</div>
+            <div class="number">1</div>
           </div>
           <i class='bx bxs-cart-download cart four' ></i>
         </div>
@@ -130,117 +107,71 @@
 
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Sports Events</div>
+          <div class="title">Events in Lehigh Valley</div>
           <div class="sales-details">
-
 
             <ul class="details">
 
               <li class="topic">Date</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["DATE"]}}</a></li>
+              {% for post in posts %}
+              <li><a href="#">{{post.date}}</a></li>
               {% endfor %}
 
             </ul>
 
             <ul class="details">
 
-            <li class="topic">Opponent</li>
-              {% for game in sportSchedule %}
-            <li><a href="#">{{game["OPPONENT"]}}</a></li>
+            <li class="topic">Organization</li>
+              {% for post in posts %}
+              <li><a href="#">{{post.organization}}</a></li>
               {% endfor %}
 
           </ul>
 
             <ul class="details">
               <li class="topic">Location</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["LOCATION"]}}</a></li>
+              {% for post in posts %}
+              <li><a href="#">{{post.location}}</a></li>
               {% endfor %}
             </ul>
 
             <ul class="details">
-              <li class="topic">Score</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["SCORE"]}}</a></li>
+              <li class="topic">Posted</li>
+              {% for post in posts %}
+              <li><a href="#">{{post.date_posted}}</a></li>
               {% endfor %}
             </ul>
 
             <ul class="details">
-              <li class="topic">Status</li>
-              {% for game in sportSchedule %}
-              <li><a href="#">{{game["STATUS"]}}</a></li>
+              <li class="topic">Service Type</li>
+              {% for post in posts %}
+              <li><a href="#">{{post.service_type}}</a></li>
               {% endfor %}
             </ul>
+            <ul class="details">
+              <li class="topic" style="color: white;">Zawk</li>
+              {% for post in range(posts | length) %}
+              <li><div id="{{post}}" class="button" onclick="activate_popup(this.id)"><a href="#">Open</a></div></li>
+              {% endfor %}
+            </ul>
+          </div>
 
-          </div>
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
         </div>
-<!--        <div class="top-sales box">-->
-<!--          <div class="title">Top Seling Product</div>-->
-<!--          <ul class="top-sales-details">-->
-<!--            <li>-->
-<!--            <a href="#">-->
-<!--              &lt;!&ndash;<img src="images/sunglasses.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Vuitton Sunglasses</span>-->
-<!--            </a>-->
-<!--            <span class="price">$1107</span>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--               &lt;!&ndash;<img src="images/jeans.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Hourglass Jeans </span>-->
-<!--            </a>-->
-<!--            <span class="price">$1567</span>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--             &lt;!&ndash; <img src="images/nike.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Nike Sport Shoe</span>-->
-<!--            </a>-->
-<!--            <span class="price">$1234</span>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              &lt;!&ndash;<img src="images/scarves.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Hermes Silk Scarves.</span>-->
-<!--            </a>-->
-<!--            <span class="price">$2312</span>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              &lt;!&ndash;<img src="images/blueBag.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Succi Ladies Bag</span>-->
-<!--            </a>-->
-<!--            <span class="price">$1456</span>-->
-<!--          </li>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              &lt;!&ndash;<img src="images/bag.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Gucci Womens's Bags</span>-->
-<!--            </a>-->
-<!--            <span class="price">$2345</span>-->
-<!--          <li>-->
-<!--            <a href="#">-->
-<!--              &lt;!&ndash;<img src="images/addidas.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Addidas Running Shoe</span>-->
-<!--            </a>-->
-<!--            <span class="price">$2345</span>-->
-<!--          </li>-->
-<!--<li>-->
-<!--            <a href="#">-->
-<!--             &lt;!&ndash;<img src="images/shirt.jpg" alt="">&ndash;&gt;-->
-<!--              <span class="product">Bilack Wear's Shirt</span>-->
-<!--            </a>-->
-<!--            <span class="price">$1245</span>-->
-<!--          </li>-->
-<!--          </ul>-->
-<!--        </div>-->
+
       </div>
     </div>
   </section>
+  {% for post in range(posts | length) %}
+  <div class="popup-container post-{{post}}">
+    <div class="popup">
+      <div>
+        
+      </div>
+      {{posts[post].organization}}
+    </div>
+  </div>
+  {% endfor %}
+  <i class='bx bxs-plus-circle'></i>
 
   <script>
 var coll = document.getElementsByClassName("collapsible");
@@ -259,6 +190,11 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+</script>
+    <script>
+  function activate_popup(element_name) {
+    document.querySelector(".post-" + element_name).classList.toggle("visible");
+  }
 </script>
   <script>
   let assignmentCollapse = document.querySelector(".home-content .sales-boxes .recent-sales");

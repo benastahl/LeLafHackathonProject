@@ -25,14 +25,15 @@
   font-size: 28px;
   font-weight: 500;
   color: #fff;
+  margin-left: 5px;
   min-width: 60px;
   text-align: center
 }
 .sidebar .logo-details .logo_name{
   color: #fff;
-  font-size: 25px;
-  font-weight: 500;
-  margin: 10px
+  font-size: 40px;
+  margin: 10px;
+  font-weight: bold;
 }
 .sidebar .nav-links{
   margin-top: 10px;
@@ -165,12 +166,14 @@ nav .search-box .bx-search{
 .home-section nav .profile-details{
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: #F5F6FA;
   border: 2px solid #EFEEF1;
   border-radius: 6px;
   height: 50px;
   min-width: 190px;
   padding: 0 15px 0 2px;
+  cursor: pointer;
 }
 
 nav .profile-details img{
@@ -188,7 +191,7 @@ nav .profile-details .guest-profile-picture {
 }
 nav .profile-details .admin_name{
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   color: #333;
   margin: 0 10px;
   white-space: nowrap;
@@ -332,7 +335,7 @@ nav .profile-details i{
 .sales-boxes .box .button a{
   color: #fff;
   background: #0A2558;
-  padding: 4px 12px;
+  padding: 1px 6px;
   font-size: 15px;
   font-weight: 400;
   border-radius: 4px;
@@ -377,6 +380,49 @@ nav .profile-details i{
   font-weight: 400;
   color: #333;
 }
+
+
+.popup-container {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  align-items: center;
+  justify-content: center;
+}
+.popup {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  background: white;
+  border-radius: 20px;
+  color: black;
+  height: 500px;
+  width: 900px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.visible {
+  display: flex;
+}
+
+.add-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.bxs-plus-circle {
+  position: fixed;
+  font-size: 65px;
+  right: 25px;
+  bottom: 25px;
+  color: #0A2558;
+  cursor: pointer;
+  text-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);;
+}
+
 /* Responsive Media Query */
 @media (max-width: 1240px) {
   .sidebar{
