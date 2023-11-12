@@ -34,7 +34,7 @@
           {% endif %}
           <button id="submit-form-button" type="submit" value="SIGNUP" onclick="hide_button('submit-form-button')">SUBMIT</button>
           <p class="message">Already have an account?
-            <a href="/login">Login here</a>
+            <a href="{{ url_for('login') }}">Log In</a>
           </p>
         </form>
       </div>
