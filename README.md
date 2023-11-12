@@ -15,3 +15,6 @@ Increase awareness of ongoing opportunities
 Help small businesses advertise opportunities and improve engagement
 Tie the community together
 
+The project was created using Flask, a Python framework used for building websites. 
+
+To run the project, simply run the app.py using `python app.py`.
