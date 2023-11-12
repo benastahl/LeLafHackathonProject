@@ -6,6 +6,18 @@ import os
 import certifi
 from datetime import datetime
 from dotenv import load_dotenv, find_dotenv
+from uszipcode import Search
+
+VALID_LEHIGH_VALLEY_ZIPCODES = [
+    "18102", "18104", "18103", "18015", "18018", "18052", "18062", "18049",
+    "18109", "18036", "18175", "18080", "18031", "18032", "18078", "18034",
+    "18106", "18037", "18066", "18069", "18011", "18041", "18101", "19529",
+    "18092", "18051", "18053", "18059", "18087", "18079", "18195", "18001",
+    "18025", "18046", "18060", "18065", "18068", "18098", "18099", "18105"
+]
+
+def verify_zipcode(zipcode):
+    return zipcode in VALID_LEHIGH_VALLEY_ZIPCODES
 
 load_dotenv(find_dotenv())
 app = Flask(__name__)
@@ -57,12 +69,20 @@ def process_signup():
     username = request.form["username"]
     zip_code = request.form["zip"]
 
+    # Verify the provided zip code
+    if not verify_zipcode(zip_code):
+        return render_template(
+            "signup.html",
+            error="Invalid zip code or not part of the Lehigh Valley.",
+        )
+
     # Check if email or username is already in use.
     if User.objects(email=email).first() or User.objects(username=username).first():
         return render_template(
             "signup.html",
             error="Email or username already in use.",
         )
+
 
     # Hash password (hashing means that it is encrypted and impossible to decrypt)
     # We can now only check to see if a plain text input matches the hashed password (bcrypt.checkpw).
