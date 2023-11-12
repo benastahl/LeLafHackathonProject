@@ -7,7 +7,7 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> WayGrade - Sports
+    <title> WayGrade - Jobs & Internships
     </title>
    </head>
 
@@ -27,25 +27,25 @@
           </a>
         </li>
         <li>
-          <a href="/sports/{{username}}" >
+          <a href="/jobinternship/{{username}}" >
             <i class='bx bx-ball' ></i>
-            <span class="links_name">Sports</span>
+            <span class="links_name">Jobs & Internships</span>
           </a>
         </li>
         <li>
-          <a href="/grades/{{username}}" >
+          <a href="/volunteer/{{username}}" >
             <i class='bx bx-book-bookmark' ></i>
-            <span class="links_name">Grades</span>
+            <span class="links_name">Volunteer</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="/tutoring/{{username}}" class="active">
             <i class='bx bx-message' ></i>
-            <span class="links_name">Messages</span>
+            <span class="links_name">Tutoring</span>
           </a>
         </li>
         <li>
-          <a href="/settings/{{username}}" class="active">
+          <a href="/settings/{{username}}">
             <i class='bx bx-cog' ></i>
             <span class="links_name">Settings</span>
           </a>
@@ -63,7 +63,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Sports</span>
+        <span class="dashboard">Jobs & Internships</span>
       </div>
       <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -75,12 +75,12 @@
 
       <div class="profile-details">
         <img src="https://c4.wallpaperflare.com/wallpaper/273/268/863/appa-avatar-the-last-airbender-glasses-wallpaper-thumb.jpg" alt="">
-        <span class="admin_name">{{username}}</span>
+        <span class="admin_name">John Doe</span>
         <i class='bx bx-chevron-down' ></i>
       </div>
     </nav>
 
-     <div class="home-content">
+    <div class="home-content">
 
       <div class="sales-boxes">
         <div class="recent-sales box">
@@ -90,34 +90,41 @@
 
             <ul class="details">
 
-              <li class="topic">Subject</li>
-              <li>Math</li>
-                <li>English</li>
-                <li>Science</li>
+              <li class="topic">Date</li>
+              {% for game in sportSchedule %}
+              <li><a href="#">{{game["DATE"]}}</a></li>
+              {% endfor %}
 
             </ul>
 
             <ul class="details">
 
-            <li class="topic">Name</li>
-              <li>Amanda Fogel</li>
-                <li>Kristen Gallagher</li>
-                <li>Lehigh CSO</li>
+            <li class="topic">Title</li>
+              {% for game in sportSchedule %}
+            <li><a href="#">{{game["OPPONENT"]}}</a></li>
+              {% endfor %}
 
           </ul>
 
             <ul class="details">
               <li class="topic">Location</li>
-              <li>Lehigh Valley</li>
-                <li>Lehigh Valley</li>
-                <li>Lehigh University</li>
+              {% for game in sportSchedule %}
+              <li><a href="#">{{game["LOCATION"]}}</a></li>
+              {% endfor %}
             </ul>
 
             <ul class="details">
               <li class="topic">Description</li>
-              <li>Help with Calc 2</li>
-                <li>Help with writing</li>
-                <li>Help with chem</li>
+              {% for game in sportSchedule %}
+              <li><a href="#">{{game["SCORE"]}}</a></li>
+              {% endfor %}
+            </ul>
+
+            <ul class="details">
+              <li class="topic">Type</li>
+              {% for game in sportSchedule %}
+              <li><a href="#">{{game["STATUS"]}}</a></li>
+              {% endfor %}
             </ul>
 
           </div>
@@ -233,4 +240,5 @@ for (i = 0; i < coll.length; i++) {
 </body>
 
 </html>
+
 
